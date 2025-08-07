@@ -18,23 +18,13 @@
       
       <!-- 資產定義 -->
       <a-assets>
-        <!-- 預設圖片 -->
-        <img id="placeholder" src="https://via.placeholder.com/512x512/4CAF50/ffffff?text=VR+Gallery" crossorigin="anonymous">
-        
-        <!-- 範例圖片 - 10張 -->
-        <img id="sample1" src="https://picsum.photos/512/512?random=1" crossorigin="anonymous">
-        <img id="sample2" src="https://picsum.photos/512/512?random=2" crossorigin="anonymous">
-        <img id="sample3" src="https://picsum.photos/512/512?random=3" crossorigin="anonymous">
-        <img id="sample4" src="https://picsum.photos/512/512?random=4" crossorigin="anonymous">
-        <img id="sample5" src="https://picsum.photos/512/512?random=5" crossorigin="anonymous">
-        <img id="sample6" src="https://picsum.photos/512/512?random=6" crossorigin="anonymous">
-        <img id="sample7" src="https://picsum.photos/512/512?random=7" crossorigin="anonymous">
-        <img id="sample8" src="https://picsum.photos/512/512?random=8" crossorigin="anonymous">
-        <img id="sample9" src="https://picsum.photos/512/512?random=9" crossorigin="anonymous">
-        <img id="sample10" src="https://picsum.photos/512/512?random=10" crossorigin="anonymous">
+        <!-- 預設圖片 - 使用本地或穩定的圖片 -->
+        <img id="placeholder" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSIjNENBRjUwIi8+Cjx0ZXh0IHg9IjI1NiIgeT0iMjU2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMzIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+VlIgR2FsbGVyeTwvdGV4dD4KPC9zdmc+" crossorigin="anonymous">
         
         <!-- 音效 -->
-        <audio id="clickSound" src="https://www.soundjay.com/misc/sounds/bell_tree.mp3" preload="auto"></audio>
+        <audio id="clickSound" preload="auto">
+          <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+L" type="audio/wav">
+        </audio>
       </a-assets>
 
       <!-- 環境設置 -->
@@ -47,311 +37,69 @@
       <a-light type="directional" position="1 4 2" intensity="0.8"></a-light>
 
       <!-- 主畫廊空間 -->
-      <a-entity id="gallery" position="0 1.6 -3">
+      <a-entity id="gallery" position="0 1.6 0">
         
-        <!-- 中央歡迎面板 -->
-        <a-plane 
-          id="welcome-panel"
-          position="0 1 0" 
-          width="4" 
-          height="2" 
-          color="#1976D2" 
-          text="value: 歡迎來到 VR 圖片畫廊\n\n轉一圈可看到 10 張圖片\n使用控制器點擊圖片查看\n或用上下頁按鈕切換更多圖片; 
-                 align: center; 
-                 color: white; 
-                 font: roboto; 
-                 width: 8"
-          animation="property: rotation; 
-                     to: 0 5 0; 
-                     dur: 10000; 
-                     loop: true; 
-                     easing: linear">
-        </a-plane>
-
-        <!-- 圖片框架 - 圓形排列 (10張圖片) -->
+        <!-- 圖片框架 - 簡單排列 -->
         <a-entity id="image-frames">
-          <!-- 第1張圖片 - 0度 -->
-          <a-entity position="4 0 0" rotation="0 -90 0">
+          <!-- 前方圖片 -->
+          <a-entity position="0 0 -3">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample1"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 1" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
 
-          <!-- 第2張圖片 - 36度 -->
-          <a-entity position="3.236 0 1.236" rotation="0 -54 0">
+          <!-- 左側圖片 -->
+          <a-entity position="-3 0 0" rotation="0 90 0">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample2"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 2" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
 
-          <!-- 第3張圖片 - 72度 -->
-          <a-entity position="1.236 0 3.236" rotation="0 -18 0">
+          <!-- 右側圖片 -->
+          <a-entity position="3 0 0" rotation="0 -90 0">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample3"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 3" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
 
-          <!-- 第4張圖片 - 108度 -->
-          <a-entity position="-1.236 0 3.236" rotation="0 18 0">
+          <!-- 後方左側圖片 -->
+          <a-entity position="-2 0 3" rotation="0 180 0">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample4"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 4" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
 
-          <!-- 第5張圖片 - 144度 -->
-          <a-entity position="-3.236 0 1.236" rotation="0 54 0">
+          <!-- 後方右側圖片 -->
+          <a-entity position="2 0 3" rotation="0 180 0">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample5"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 5" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
 
-          <!-- 第6張圖片 - 180度 -->
-          <a-entity position="-4 0 0" rotation="0 90 0">
+          <!-- 上方圖片 -->
+          <a-entity position="0 2 0" rotation="-90 0 0">
             <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample6"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
+              width="2" 
+              height="2" 
+              src="#placeholder"
+              class="gallery-image">
             </a-plane>
-            <a-text 
-              value="圖片 6" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
           </a-entity>
-
-          <!-- 第7張圖片 - 216度 -->
-          <a-entity position="-3.236 0 -1.236" rotation="0 126 0">
-            <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample7"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
-            </a-plane>
-            <a-text 
-              value="圖片 7" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
-          </a-entity>
-
-          <!-- 第8張圖片 - 252度 -->
-          <a-entity position="-1.236 0 -3.236" rotation="0 162 0">
-            <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample8"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
-            </a-plane>
-            <a-text 
-              value="圖片 8" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
-          </a-entity>
-
-          <!-- 第9張圖片 - 288度 -->
-          <a-entity position="1.236 0 -3.236" rotation="0 198 0">
-            <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample9"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
-            </a-plane>
-            <a-text 
-              value="圖片 9" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
-          </a-entity>
-
-          <!-- 第10張圖片 - 324度 -->
-          <a-entity position="3.236 0 -1.236" rotation="0 234 0">
-            <a-plane 
-              width="2.5" 
-              height="2.5" 
-              src="#sample10"
-              class="gallery-image"
-              animation__hover="property: scale; 
-                              to: 1.1 1.1 1.1; 
-                              dur: 200; 
-                              startEvents: mouseenter"
-              animation__leave="property: scale; 
-                              to: 1 1 1; 
-                              dur: 200; 
-                              startEvents: mouseleave">
-            </a-plane>
-            <a-text 
-              value="圖片 10" 
-              position="0 -1.5 0" 
-              align="center" 
-              color="white"
-              width="8">
-            </a-text>
-          </a-entity>
-        </a-entity>
-
-        <!-- 互動按鈕 -->
-        <a-entity id="controls" position="0 -1 1">
-          <a-box 
-            id="prev-btn"
-            position="-1 0 0" 
-            width="0.8" 
-            height="0.4" 
-            depth="0.1" 
-            color="#FF5722"
-            text="value: 上一頁; align: center; color: white; width: 10"
-            class="clickable"
-            animation__click="property: scale; 
-                            to: 0.9 0.9 0.9; 
-                            dur: 100; 
-                            startEvents: click">
-          </a-box>
-          
-          <a-box 
-            id="next-btn"
-            position="1 0 0" 
-            width="0.8" 
-            height="0.4" 
-            depth="0.1" 
-            color="#4CAF50"
-            text="value: 下一頁; align: center; color: white; width: 10"
-            class="clickable"
-            animation__click="property: scale; 
-                            to: 0.9 0.9 0.9; 
-                            dur: 100; 
-                            startEvents: click">
-          </a-box>
         </a-entity>
       </a-entity>
 
@@ -365,21 +113,6 @@
           look-controls 
           wasd-controls
           cursor="rayOrigin: mouse">
-          
-          <!-- 游標 -->
-          <a-cursor 
-            position="0 0 -1"
-            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-            material="color: #4CAF50; shader: flat"
-            animation__click="property: scale; 
-                            to: 1.2 1.2 1; 
-                            dur: 150; 
-                            startEvents: click"
-            animation__fusing="property: scale; 
-                             to: 1.2 1.2 1; 
-                             dur: 1500; 
-                             startEvents: fusing">
-          </a-cursor>
         </a-camera>
 
         <!-- Quest 2 控制器 -->
@@ -387,14 +120,14 @@
           id="leftHand" 
           hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
           laser-controls="hand: left"
-          raycaster="objects: .clickable, .gallery-image">
+          raycaster="objects: .gallery-image">
         </a-entity>
         
         <a-entity 
           id="rightHand" 
           hand-controls="hand: right; handModelStyle: lowPoly; color: #ccffcc" 
           laser-controls="hand: right"
-          raycaster="objects: .clickable, .gallery-image">
+          raycaster="objects: .gallery-image">
         </a-entity>
       </a-entity>
 
