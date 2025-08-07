@@ -1,0 +1,142 @@
+/* VR Gallery Styles */
+
+/* 重置和基本樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background: #000;
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* A-Frame 場景樣式 */
+a-scene {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 載入畫面 */
+.a-loader-title {
+  color: #4CAF50 !important;
+  font-size: 2rem !important;
+}
+
+.a-loader {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+}
+
+/* VR 進入按鈕樣式 */
+.a-enter-vr-button {
+  background: linear-gradient(45deg, #4CAF50, #8BC34A) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 15px 30px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: white !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3) !important;
+}
+
+.a-enter-vr-button:hover {
+  background: linear-gradient(45deg, #45a049, #7cb342) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+}
+
+/* 行動裝置適配 */
+@media (max-width: 768px) {
+  .a-enter-vr-button {
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Quest 2 特定樣式 */
+@media (display-mode: standalone) {
+  body {
+    background: #000;
+  }
+  
+  /* 隱藏不必要的 UI 元素 */
+  .a-enter-vr-button {
+    display: none !important;
+  }
+}
+
+/* 除錯資訊樣式 */
+.rs-base {
+  position: fixed !important;
+  top: 10px !important;
+  left: 10px !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: #4CAF50 !important;
+  border-radius: 4px !important;
+  padding: 5px !important;
+  font-size: 12px !important;
+  z-index: 1000 !important;
+}
+
+/* 自定義游標樣式 */
+a-cursor {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 響應式設計 */
+@media (orientation: landscape) {
+  body {
+    /* 橫向模式優化 */
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    /* 直向模式優化 */
+  }
+}
+
+/* 高對比度模式 */
+@media (prefers-contrast: high) {
+  .a-enter-vr-button {
+    border: 2px solid white !important;
+    background: #000 !important;
+    color: white !important;
+  }
+}
+
+/* 減少動畫模式 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* WebXR 特定樣式 */
+@media (display-mode: vr) {
+  /* VR 模式下的特殊樣式 */
+  body {
+    background: transparent;
+  }
+}
