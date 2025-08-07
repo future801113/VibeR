@@ -41,7 +41,7 @@ npm run build
 3. **自動部署**：每次推送到 main/master 分支會自動觸發部署
 
 部署後可透過以下網址訪問：
-- **線上版本**：`https://your-username.github.io/repository-name/`
+- **線上版本**：`https://future801113.github.io/VibeR/`
 - **Quest 2 HTTPS 支援**：完整 WebXR 功能需要 HTTPS
 
 ### 在 Quest 2 中測試
